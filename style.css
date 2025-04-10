@@ -1,0 +1,41 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+    background-color: #282c34;
+    color: white;
+}
+
+/* Tab Styles */
+.tab {
+    overflow: hidden;
+    border-bottom: 1px solid #ccc;
+}
+.tab button {
+    background-color: inherit;
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 16px;
+    color: white;
+}
+.tab button:hover {
+    background-color: #575757;
+}
+.tab button.active {
+    background-color: #3b3b3b;
+}
+
+/* Tab Content */
+.tabcontent {
+    display: none;
+    padding: 20px;
+}
+
+/* Monaco Editor */
+#editor {
+    border: 1px solid #ccc;
+    height: 400px;
+}
