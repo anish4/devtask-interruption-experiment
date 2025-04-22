@@ -72,6 +72,8 @@ ipcMain.on("submit-solution", (event, functionName) => {
 
         // Run test cases
         let results = [];
+        let passedCount = 0;
+
         for (const test of task.testCases) {
             try {
                 let userOutput = eval(`userFunction(${test.input})`);
@@ -85,6 +87,7 @@ ipcMain.on("submit-solution", (event, functionName) => {
                 } else {
                     passed = JSON.stringify(userOutput) === JSON.stringify(expectedOutput); // String comparison
                 }
+                if (passed) passedCount++;
 
                 results.push({
                     input: test.input,
@@ -96,8 +99,14 @@ ipcMain.on("submit-solution", (event, functionName) => {
                 results.push({ input: test.input, error: error.message });
             }
         }
+        const totalTests = task.testCases.length;
+        const accuracy = ((passedCount / totalTests) * 100).toFixed(2);
+        const errorRate = (100 - accuracy).toFixed(2);
 
-        event.sender.send("test-results", results);
+event.sender.send("test-results", {
+    results,
+    metrics: { accuracy, errorRate, totalTests, passedCount }
+});
     } catch (error) {
         event.sender.send("test-results", { error: error.message });
     }
