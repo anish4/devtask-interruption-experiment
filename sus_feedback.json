@@ -1,0 +1,53 @@
+[
+  {
+    "timestamp": "2025-04-28T13:43:58.727Z",
+    "mode": "normal",
+    "module": "general",
+    "susAnswers": [
+      5,
+      4,
+      4,
+      4,
+      3,
+      3,
+      3,
+      3,
+      3,
+      4
+    ]
+  },
+  {
+    "timestamp": "2025-04-28T13:56:08.033Z",
+    "mode": "normal",
+    "module": "general",
+    "susAnswers": [
+      3,
+      3,
+      4,
+      3,
+      4,
+      3,
+      4,
+      4,
+      4,
+      4
+    ]
+  },
+  {
+    "timestamp": "2025-04-28T18:17:15.878Z",
+    "mode": "normal",
+    "module": "general",
+    "susAnswers": [
+      5,
+      4,
+      5,
+      1,
+      4,
+      5,
+      4,
+      3,
+      4,
+      3
+    ]
+  }
+]

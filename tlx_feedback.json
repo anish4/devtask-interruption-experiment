@@ -1,0 +1,28 @@
+[
+  {
+    "timestamp": "2025-04-28T13:43:21.792Z",
+    "mode": "normal",
+    "module": "general",
+    "tlxRatings": [
+      5,
+      4,
+      3,
+      4,
+      4,
+      2
+    ]
+  },
+  {
+    "timestamp": "2025-04-28T18:18:14.973Z",
+    "mode": "normal",
+    "module": "general",
+    "tlxRatings": [
+      4,
+      1,
+      4,
+      5,
+      5,
+      2
+    ]
+  }
+]

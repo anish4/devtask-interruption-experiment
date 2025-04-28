@@ -1,0 +1,62 @@
+[
+  {
+    "timestamp": "2025-04-28T13:44:20.277Z",
+    "mode": "normal",
+    "module": "general",
+    "fdsAnswers": [
+      4,
+      4,
+      3,
+      4,
+      4,
+      3
+    ],
+    "fdsAverage": "3.67",
+    "feedbackType": "before_interruption"
+  },
+  {
+    "timestamp": "2025-04-28T14:23:57.786Z",
+    "mode": "normal",
+    "module": "general",
+    "fdsAnswers": [
+      4,
+      5,
+      5,
+      5,
+      5,
+      4
+    ],
+    "fdsAverage": "4.67",
+    "feedbackType": "after_interruption"
+  },
+  {
+    "timestamp": "2025-04-28T18:15:31.966Z",
+    "mode": "normal",
+    "module": "general",
+    "fdsAnswers": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "fdsAverage": "1.00",
+    "feedbackType": "before_interruption"
+  },
+  {
+    "timestamp": "2025-04-28T18:15:49.149Z",
+    "mode": "interruption",
+    "module": "general",
+    "fdsAnswers": [
+      5,
+      5,
+      5,
+      5,
+      5,
+      5
+    ],
+    "fdsAverage": "5.00",
+    "feedbackType": "after_interruption"
+  }
+]

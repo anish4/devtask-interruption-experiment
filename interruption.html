@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Interruption Alert</title>
+  <style>
+     body {
+    animation: flash 1s infinite alternate;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #ffcccc;
+    color: #990000;
+  }
+
+  @keyframes flash {
+    from { background-color: #ffcccc; }
+    to { background-color: #ffeeba; }
+  }
+    h2 {
+      margin-top: 0;
+    }
+    button {
+      margin-top: 20px;
+      padding: 5px 10px;
+      background-color: #ffc107;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h2 id="popup-title">🔔 INTERRUPTION!</h2>
+  <p id="popup-message">An interruption happened.</p>
+  <button onclick="window.close()">Dismiss</button>
+
+  <script>
+    const args = new URLSearchParams(location.search.slice(1));
+    const title = args.get('title') || '🔔 INTERRUPTION!';
+    const message = args.get('message') || 'You have been interrupted.';
+
+    document.getElementById('popup-title').textContent = title;
+    document.getElementById('popup-message').textContent = message;
+  </script>
+</body>
+</html>

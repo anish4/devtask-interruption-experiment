@@ -8,12 +8,17 @@
 </head>
 <body>
   <h1>Software Development Task Environment</h1>
+  <div id="mode-selector" class="section">
+    <label><input type="radio" name="mode" value="normal" checked> Normal Mode (No Interruptions)</label>
+    <label><input type="radio" name="mode" value="interruption"> Interruption Mode (Random Distractions)</label>
+  </div>
 
   <!-- Tab Navigation -->
   <div class="tab">
     <button class="tablinks" onclick="openTab(event, 'coding')" id="defaultOpen">Coding Module</button>
     <button class="tablinks" onclick="openTab(event, 'comprehension')">Code Comprehension</button>
     <button class="tablinks" onclick="openTab(event, 'testing')">Testing Module</button>
+    <button class="tablinks" onclick="openTab(event, 'analysis')">Data Analysis</button>
   </div>
 
   <!-- Coding Module -->
@@ -45,8 +50,29 @@
   <!-- Testing Module -->
   <div id="testing" class="tabcontent">
     <h2>Testing Module</h2>
-    <p>Coming soon: write your own unit tests for provided functions.</p>
+  <div class="section">
+    <select id="testing-select">
+      <option value="">— select a function —</option>
+      <option value="add">add(a, b)</option>
+      <option value="max">max(a, b)</option>
+    </select>
+    <button id="btn-open-testing">Open Function + Test File</button>
+    <button id="btn-run-tests">Run Your Tests</button>
   </div>
+  <div id="testing-results"></div>
+  </div>
+
+  <!-- Data Analysis Module -->
+<div id="analysis" class="tabcontent">
+  <h2>Data Analysis Dashboard</h2>
+  <div style="margin-bottom:20px;">
+    <button id="btn-analyze-fds">Analyze FDS</button>
+    <button id="btn-analyze-sus">Analyze SUS</button>
+    <button id="btn-analyze-tlx">Analyze TLX</button>
+    <button id="btn-analyze-task-metrics">Analyze Task Metrics</button>
+  </div>
+  <div id="analysis-results"></div>
+</div>
 
   <!-- Renderer Script -->
   <script src="renderer.js"></script>
@@ -71,5 +97,70 @@
       document.getElementById('defaultOpen').click();
     });
   </script>
+  <!-- Record Frustration Button -->
+<div style="text-align:center; margin: 20px;">
+  <button id="btn-record-fds">Record Frustration Level</button>
+</div>
+<!-- Record SUS Button -->
+<div style="text-align:center; margin:20px;">
+  <button id="btn-record-sus">Record SUS Survey</button>
+</div>
+
+<!-- Record TLX Button -->
+<div style="text-align:center; margin:20px;">
+  <button id="btn-record-tlx">Record NASA-TLX Survey</button>
+</div>
+
+
+<!-- FDS Survey Modal -->
+<div id="fds-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999;">
+  <div style="background:white; color:black; width:90%; max-width:600px; margin:5% auto; padding:20px; border-radius:10px; overflow-y:auto; max-height:90%;">
+    <h2 style="color:black;">Frustration Survey</h2>
+    <form id="fds-form">
+      <div style="margin-bottom: 15px;">
+        <label for="fds-type">Feedback Type:</label>
+        <select id="fds-type" required>
+          <option value="">--Select Type--</option>
+          <option value="before_interruption">Before Interruption</option>
+          <option value="after_interruption">After Interruption</option>
+        </select>
+      </div>
+      <div id="fds-questions"></div>
+      <br>
+      <button type="submit">Submit Survey</button>
+    </form>
+  </div>
+</div>
+<!-- SUS Modal -->
+<div id="sus-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999;">
+  <div style="background:white; color:black; width:90%; max-width:600px; margin:5% auto; padding:20px; border-radius:10px; overflow-y:auto; max-height:90%;">
+    <h2 style="color:black;">System Usability Scale (SUS)</h2>
+    <form id="sus-form">
+      <div id="sus-questions"></div>
+      <br>
+      <button type="submit">Submit SUS Survey</button>
+    </form>
+  </div>
+</div>
+
+<!-- TLX Modal -->
+<div id="tlx-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999;">
+  <div style="background:white; color:black; width:90%; max-width:600px; margin:5% auto; padding:20px; border-radius:10px; overflow-y:auto; max-height:90%;">
+    <h2 style="color:black;">NASA Task Load Index (TLX)</h2>
+    <form id="tlx-form">
+      <div id="tlx-questions"></div>
+      <br>
+      <button type="submit">Submit TLX Survey</button>
+    </form>
+  </div>
+</div>
+
+<div id="thankyou-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:10000;">
+  <div style="background:white; color:black; width:400px; margin:15% auto; padding:20px; border-radius:10px; text-align:center;">
+    <h2>Thank you for submitting!</h2>
+    <p>Your feedback has been recorded.</p>
+    <button onclick="closeThankYou()">Close</button>
+  </div>
+</div>
 </body>
 </html>
